@@ -44,6 +44,12 @@ class CarroController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request, [
+            'modelo' => 'required|min:2|max:60',
+            'ano' => 'required|numeric|size:4',
+            'cor' => 'min:4|max:40'
+        ]);
+
         $dados = $request->all();
         $inc = Carro:: create($dados);
 
