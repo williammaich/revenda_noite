@@ -45,8 +45,8 @@ class CarroController extends Controller
     {
 
         $this->validate($request, [
-            'modelo' => 'required|min:2|max:60',
-            'ano' => 'required|numeric|size:4',
+            'modelo' => 'required|unique:carros|min:2|max:60',
+            'ano' => 'required|numeric|min:1970|max:2020',
             'cor' => 'min:4|max:40'
         ]);
 
@@ -100,6 +100,13 @@ class CarroController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'modelo' => ['required', 'unique:carros,modelo,'. $id, 'min:2', 'max:60'],
+            'ano' => 'required|numeric|min:1970|max:2020',
+            'cor' => 'min:4|max:40'
+        ]);
+
+
         $dados = $request->all();
         $reg = Carro:: find($id);
         $alt = $reg->update($dados);
@@ -124,4 +131,13 @@ class CarroController extends Controller
             return redirect()->route('carros.index')->with('status', $s->nome . 'Excluido com sucesso');
         }
     }
+
+    public function foto($id)
+    {
+        $reg = Carro:: find($id);
+        $marcas = Marca::orderBy('nome')->get();
+
+        return view('carros_foto', compact('reg', 'acao', 'marcas'));
+    }
+
 }

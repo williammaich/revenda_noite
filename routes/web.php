@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 
 Route::resource('carros','CarroController');
+Route::get('carrosfoto/{id}','CarroController@foto')->name('carros.foto');
