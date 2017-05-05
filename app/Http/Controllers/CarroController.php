@@ -140,4 +140,24 @@ class CarroController extends Controller
         return view('carros_foto', compact('reg', 'acao', 'marcas'));
     }
 
+    public function storeFoto(Request $request)
+    {
+
+
+        $dados = $request->all();
+        $id = $dados['id'];
+        if(isset($dados['foto'])){
+            $fotoId = $id . '.jpg';
+            $request->foto->move(public_path('fotos'),$fotoId);
+        }
+
+
+
+            return redirect()->
+            route('carros.index')->
+            with('status', $request->modelo . ' com foto cadastrado!');
+
+
+    }
+
 }

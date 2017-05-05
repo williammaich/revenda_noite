@@ -55,7 +55,7 @@
                   {{csrf_field()}}
                   <button type="submit" class="btn btn-danger">Excluir</button>
               </form>
-              <a href="{{route('carros.foto',$carro->id)}}" class="btn btn-info" role="button">Fotor</a>
+              <a href="{{route('carros.foto',$carro->id)}}" class="btn btn-info" role="button">Foto</a>
           </td>
 
           

@@ -15,6 +15,8 @@
     <form method="post" action="{{route('carros.store.foto')}}"
     enctype="multipart/form-data">
         {{csrf_field()}}
+        <input type="hidden" name="id" value="{{$reg->id}}">
+
     <div class="col-sm-9">
 
         <div class="form-group">
@@ -92,17 +94,35 @@
 
 
             @endphp
-            {!! "<img src=$foto id='foto' width='200' height='150' alt='Foto'>" !!}
+            {!! "<img src=$foto id='imagem' width='200' height='150' alt='Foto'>" !!}
 
             <div class="form-group">
                 <label for="foto">Foto: </label>
-                <input type="file" id="foto" name="foto" class="form-control">
+                <input type="file" id="foto" name="foto" onchange="previewFile()" class="form-control">
             </div>
         </div>
 
 
     </form>
 <script>
+   function previewFile() {
+       var preview = document.getElementById('imagem');
+       var file    = document.getElementById('foto').files[0];
+       var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+
+       };
+       if(file){
+           reader.readAsDataURL(file);
+       }else{
+           preview.src = "";
+       }
+
+   }
+
+
     $(document).ready(function(){
         $('#preco').mask("#.###.##0,00", {reverse: true});
         });
