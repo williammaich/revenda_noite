@@ -14,7 +14,9 @@ class CarroController extends Controller
      */
     public function index()
     {
-        $carros = Carro::all();
+       // $carros = Carro::all();
+
+        $carros = Carro::paginate(3);
 
         return view('carros_list', compact('carros'));
 

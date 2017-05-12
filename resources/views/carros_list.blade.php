@@ -62,9 +62,11 @@
           
           
       </tr>
-    </tbody>
+
     @endforeach
+    </tbody>
   </table>
+    {{$carros->links()}}
 </div>
     
 
