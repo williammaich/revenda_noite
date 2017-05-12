@@ -23,5 +23,5 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('register', function (){
-   return"<h1>Acesso Restrito</h1>"; 
+   return"<h1>Acesso Restrito</h1>";
 });
