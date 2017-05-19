@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Carro;
 use App\Marca;
+
+
 class CarroController extends Controller
 {
     /**
@@ -14,7 +17,14 @@ class CarroController extends Controller
      */
     public function index()
     {
+        if (!Auth::check()) {
+           return redirect('/');
+        }
+
        // $carros = Carro::all();
+        if(!Auth::check()){
+            return redirect('/');
+        }
 
         $carros = Carro::paginate(3);
 
@@ -29,6 +39,10 @@ class CarroController extends Controller
      */
     public function create()
     {
+
+        if (!Auth::check()) {
+            return redirect('/');
+        }
         $acao = 1;
 
         $marcas = Marca::orderBy('nome')->get();
@@ -86,6 +100,9 @@ class CarroController extends Controller
      */
     public function edit($id)
     {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
         $reg = Carro:: find($id);
         $acao = 2;
         $marcas = Marca::orderBy('nome')->get();
@@ -144,7 +161,9 @@ class CarroController extends Controller
 
     public function storeFoto(Request $request)
     {
-
+        if (!Auth::check()) {
+            return redirect('/');
+        }
 
         $dados = $request->all();
         $id = $dados['id'];
@@ -161,5 +180,60 @@ class CarroController extends Controller
 
 
     }
+
+
+    public function pesq()
+    {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
+        // $carros = Carro::all();
+
+        $carros = Carro::paginate(3);
+
+        return view('carros_pesq', compact('carros'));
+
+    }
+
+
+    public function filtros2(Request $request){
+        $modelo = $request -> modelo;
+        $precomax = $request ->precomax;
+
+        $filtro = array();
+
+if(!empty($modelo)){
+    array_push($filtro, array('modelo', 'like','%'.$modelo.'%'));
+
+}
+
+        if(!empty($precomax)){
+            array_push($filtro, array('modelo', 'like','%'.$precomax.'%'));
+
+        }
+        $carros = Carro::where($filtro)
+
+            ->orderBy('modelo')
+            ->paginate(3);
+
+        return view('carros_pesq', compact('carros'));
+
+    }
+
+
+    public function filtros(Request $request){
+        $modelo = $request -> modelo;
+        $precomax = $request ->precomax;
+
+        $carros = Carro::where('modelo', 'like', '%'.$modelo.'%')
+            ->where('preco','<=', $precomax)
+            ->orderBy('modelo')
+        ->paginate(3);
+
+        return view('carros_pesq', compact('carros'));
+
+    }
+
 
 }

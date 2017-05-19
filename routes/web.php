@@ -19,9 +19,13 @@
 Route::resource('carros','CarroController');
 Route::get('carrosfoto/{id}','CarroController@foto')->name('carros.foto');
 Route::post('carrosfotostore','CarroController@storeFoto')->name('carros.store.foto');
+Route::get('carrospesc', 'CarroController@pesq')->name('carros.pesq');
+Route::post('carrosfiltros', 'CarroController@filtros')->name('carros.filtros');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('register', function (){
    return"<h1>Acesso Restrito</h1>";
+
 });
+

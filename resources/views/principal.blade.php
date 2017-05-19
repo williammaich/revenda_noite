@@ -24,7 +24,14 @@
       <li><a href="#">...</a></li>
         </ul>
       </li>
-       <li><a href="#">Pesquisa</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Pesquisas <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{route('carros.pesq')}}">Carros</a></li>
+          <li><a href="#">Propostas</a></li>
+          <li><a href="#">...</a></li>
+        </ul>
+      </li>
+
        <li><a href="#">Relatorio</a></li>
        <li><a href="#">Utilitário</a></li>
     </ul>
