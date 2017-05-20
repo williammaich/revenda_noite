@@ -50,7 +50,7 @@
               <a href="{{route('carros.edit',$carro->id)}}" class="btn btn-warning" role="button">Alterar</a>
               <a href="{{route('carros.show' , $carro->id)}}" class="btn btn-info" role="button">Ver</a>
               <form style="display: inline-block;" method="POST" action="{{route('carros.destroy', $carro->id)}}"
-                    onsubmit="return confim('Confirma a exclusão?')">
+                    onsubmit="return confirm('Confirma a exclusão?')">
                   {{method_field('DELETE')}}
                   {{csrf_field()}}
                   <button type="submit" class="btn btn-danger">Excluir</button>
