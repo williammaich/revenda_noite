@@ -8,6 +8,7 @@
 
 <div class="col-sm-1">
     <a href="{{route('carros.pesq')}}" class="btn btn-primary" role="button">Ver todos</a>
+
 </div>
 
 

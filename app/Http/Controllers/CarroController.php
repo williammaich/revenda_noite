@@ -18,11 +18,11 @@ class CarroController extends Controller
     public function index()
     {
         if (!Auth::check()) {
-           return redirect('/');
+            return redirect('/');
         }
 
-       // $carros = Carro::all();
-        if(!Auth::check()){
+        // $carros = Carro::all();
+        if (!Auth::check()) {
             return redirect('/');
         }
 
@@ -47,7 +47,7 @@ class CarroController extends Controller
 
         $marcas = Marca::orderBy('nome')->get();
 
-        return view('carros_form', compact('acao','marcas'));
+        return view('carros_form', compact('acao', 'marcas'));
 
     }
 
@@ -120,7 +120,7 @@ class CarroController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'modelo' => ['required', 'unique:carros,modelo,'. $id, 'min:2', 'max:60'],
+            'modelo' => ['required', 'unique:carros,modelo,' . $id, 'min:2', 'max:60'],
             'ano' => 'required|numeric|min:1970|max:2020',
             'cor' => 'min:4|max:40'
         ]);
@@ -167,16 +167,15 @@ class CarroController extends Controller
 
         $dados = $request->all();
         $id = $dados['id'];
-        if(isset($dados['foto'])){
+        if (isset($dados['foto'])) {
             $fotoId = $id . '.jpg';
-            $request->foto->move(public_path('fotos'),$fotoId);
+            $request->foto->move(public_path('fotos'), $fotoId);
         }
 
 
-
-            return redirect()->
-            route('carros.index')->
-            with('status', $request->modelo . ' com foto cadastrado!');
+        return redirect()->
+        route('carros.index')->
+        with('status', $request->modelo . ' com foto cadastrado!');
 
 
     }
@@ -184,56 +183,47 @@ class CarroController extends Controller
 
     public function pesq()
     {
+        // verifica se (não) está autenticado
         if (!Auth::check()) {
             return redirect('/');
         }
-
-        // $carros = Carro::all();
-
+//        $carros = Carro::all();
         $carros = Carro::paginate(3);
-
         return view('carros_pesq', compact('carros'));
-
     }
 
-
-    public function filtros(Request $request){
-        $modelo = $request -> modelo;
-        $precomax = $request ->precomax;
+    public function filtros(Request $request)
+    {
+        $modelo = $request->modelo;
+        $precomax = $request->precomax;
 
         $filtro = array();
 
-if(!empty($modelo)){
-    array_push($filtro, array('modelo', 'like','%'.$modelo.'%'));
-
-}
-
-        if(!empty($precomax)){
-            array_push($filtro, array('preco', '<=',$precomax));
-
+        if (!empty($modelo)) {
+            array_push($filtro, array('modelo', 'like', '%' . $modelo . '%'));
         }
-        $carros = Carro::where($filtro)
 
+        if (!empty($precomax)) {
+            array_push($filtro, array('preco', '<=', $precomax));
+        }
+
+        $carros = Carro::where($filtro)
             ->orderBy('modelo')
             ->paginate(3);
 
         return view('carros_pesq', compact('carros'));
-
     }
 
+    public function filtros2(Request $request)
+    {
+        $modelo = $request->modelo;
+        $precomax = $request->precomax;
 
-    public function filtros2(Request $request){
-        $modelo = $request -> modelo;
-        $precomax = $request ->precomax;
-
-        $carros = Carro::where('modelo', 'like', '%'.$modelo.'%')
-            ->where('preco','<=', $precomax)
+        $carros = Carro::where('modelo', 'like', '%' . $modelo . '%')
+            ->where('preco', '<=', $precomax)
             ->orderBy('modelo')
-        ->paginate(3);
+            ->paginate(3);
 
         return view('carros_pesq', compact('carros'));
-
     }
-
-
 }
