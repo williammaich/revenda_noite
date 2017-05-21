@@ -20,7 +20,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastro <span class="caret"></span></a>
         <ul class="dropdown-menu">
              <li><a href="{{route('carros.index')}}">Carros</a></li>
-      <li><a href="#">Marcas</a></li>
+      <li><a href="{{route('marcas.index')}}">Marcas</a></li>
       <li><a href="#">...</a></li>
         </ul>
       </li>

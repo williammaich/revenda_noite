@@ -21,6 +21,8 @@ Route::get('carrosfoto/{id}','CarroController@foto')->name('carros.foto');
 Route::post('carrosfotostore','CarroController@storeFoto')->name('carros.store.foto');
 Route::get('carrospesc', 'CarroController@pesq')->name('carros.pesq');
 Route::post('carrosfiltros', 'CarroController@filtros')->name('carros.filtros');
+Route::resource('marcas','MarcaController');
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index');

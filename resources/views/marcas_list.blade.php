@@ -24,8 +24,8 @@
             <tr>
                 <th>Código</th>
                 <th>Marca</th>
-                <th>Pais</th>
-                <th>Ano</th>
+
+
                 <th>Ações</th>
             </tr>
             </thead>
@@ -36,7 +36,7 @@
                     <td style="text-align: center">{{$marca->id}}</td>
                     <td>{{$marca->marca}}</td>
                     <td>{{$marca->pais}}</td>
-                    <td>{{$marca->ano}}</td>
+
 
                     <td>&nbsp;
                         <a href="{{route('marcas.edit',$marca->id)}}" class="btn btn-warning" role="button">Alterar</a>
