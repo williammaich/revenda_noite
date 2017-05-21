@@ -197,7 +197,7 @@ class CarroController extends Controller
     }
 
 
-    public function filtros2(Request $request){
+    public function filtros(Request $request){
         $modelo = $request -> modelo;
         $precomax = $request ->precomax;
 
@@ -209,7 +209,7 @@ if(!empty($modelo)){
 }
 
         if(!empty($precomax)){
-            array_push($filtro, array('modelo', 'like','%'.$precomax.'%'));
+            array_push($filtro, array('preco', '<=',$precomax));
 
         }
         $carros = Carro::where($filtro)
@@ -222,7 +222,7 @@ if(!empty($modelo)){
     }
 
 
-    public function filtros(Request $request){
+    public function filtros2(Request $request){
         $modelo = $request -> modelo;
         $precomax = $request ->precomax;
 
