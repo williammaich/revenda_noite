@@ -24,7 +24,7 @@
             <tr>
                 <th>Código</th>
                 <th>Marca</th>
-
+                <th>Pais</th>
 
                 <th>Ações</th>
             </tr>
@@ -34,7 +34,7 @@
                 <tr>
 
                     <td style="text-align: center">{{$marca->id}}</td>
-                    <td>{{$marca->marca}}</td>
+                    <td>{{$marca->nome}}</td>
                     <td>{{$marca->pais}}</td>
 
 
@@ -49,14 +49,14 @@
                         </form>
 
                     </td>
-
-
-
-
                 </tr>
-            </tbody>
+
+
+
             @endforeach
+            </tbody>
         </table>
+            {{$marcas->links()}}
     </div>
 
 

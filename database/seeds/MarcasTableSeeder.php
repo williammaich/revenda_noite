@@ -11,10 +11,10 @@ class MarcasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('marcas')->insert(['nome' => 'Fiat']);
-        DB::table('marcas')->insert(['nome' => 'Chefrolet']);
-        DB::table('marcas')->insert(['nome' => 'Volkswagen']);
-        DB::table('marcas')->insert(['nome' => 'Renault']);
-        DB::table('marcas')->insert(['nome' => 'Ford']);
+        DB::table('marcas')->insert(['nome' => 'Fiat', 'pais' => 'italia']);
+        DB::table('marcas')->insert(['nome' => 'Chefrolet', 'pais' => 'eua']);
+        DB::table('marcas')->insert(['nome' => 'Volkswagen', 'pais' => 'alemanha']);
+        DB::table('marcas')->insert(['nome' => 'Renault', 'pais' => 'franca']);
+        DB::table('marcas')->insert(['nome' => 'Ford', 'pais' => 'eua']);
     }
 }
