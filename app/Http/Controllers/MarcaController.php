@@ -92,7 +92,7 @@ class MarcaController extends Controller
     public function edit($id)
     {
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/arearestrita');
         }
         // posiciona no registro a ser alterado e obtém seus dados
         $reg = Marca::find($id);

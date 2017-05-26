@@ -45,7 +45,7 @@ class CarroController extends Controller
     {
 
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/arearestrita');
         }
         $acao = 1;
 
@@ -105,7 +105,7 @@ class CarroController extends Controller
     public function edit($id)
     {
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/arearestrita');
         }
         $reg = Carro:: find($id);
         $acao = 2;
@@ -166,7 +166,7 @@ class CarroController extends Controller
     public function storeFoto(Request $request)
     {
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/arearestrita');
         }
 
         $dados = $request->all();
@@ -189,7 +189,7 @@ class CarroController extends Controller
     {
         // verifica se (não) está autenticado
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/arearestrita');
         }
 //        $carros = Carro::all();
         $carros = Carro::paginate(3);

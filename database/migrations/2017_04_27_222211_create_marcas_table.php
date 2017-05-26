@@ -17,7 +17,7 @@ class CreateMarcasTable extends Migration
             $table->smallIncrements('id');
             $table->string('nome', 40);
             $table->string('pais', 40);
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
