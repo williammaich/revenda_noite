@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> desenvolvimentos
 <?php
 
 /*
@@ -24,6 +28,12 @@ Route::post('carrosfotostore', 'CarroController@storeFoto')
     ->name('carros.store.foto');
 Route::get('carrospesq', 'CarroController@pesq')
     ->name('carros.pesq');
+<<<<<<< HEAD
+=======
+Route::get('carrosgraf', 'CarroController@graf')
+    ->name('carros.graf');
+
+>>>>>>> desenvolvimentos
 Route::post('carrosfiltros', 'CarroController@filtros')
     ->name('carros.filtros');
 
