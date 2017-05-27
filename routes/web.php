@@ -16,7 +16,9 @@
 //Route::get('/', function () {
 //    return view('index');
 //});
-
+Route::get('/',function(){
+    return view('usuario.titulo');
+});
 Route::resource('carros', 'CarroController');
 Route::resource('marcas','MarcaController');
 Route::get('carrosfoto/{id}', 'CarroController@foto')

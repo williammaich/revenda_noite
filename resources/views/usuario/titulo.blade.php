@@ -22,10 +22,35 @@
             <li><a href="#">Propostas</a></li>
         </ul>
     </div>
+
 </nav>
+<div class="container">
+    <div class="col-sm-3" alt="Fusca herbie">
+        <img src="fotos/heb.jpg" alt="Herbie" height="200px">
 
 
-@yield
+    </div>
+    <div class="col-sm-7">
+        <h1 style="text-align: center">Revenda Herbie</h1>
+        <h3 style="text-align: center">Os melhores preços da cidade</h3>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="col-sm-9">
+        <h2 style="text-align: center">Veiculos em destaque</h2>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-sm-9">
+        <h2 style="text-align: center">Veiculos por marcas</h2>
+    </div>
+</div>
+
+
+
 
 </body>
 </html>
