@@ -12,7 +12,7 @@
 
         @else
 
-                <h2>Alteração de carros</h2>
+            <h2>Alteração de carros</h2>
 @endif
 
     </div>
@@ -102,7 +102,22 @@
                         @if ((isset($reg) && $reg->combustivel == "Flex") || old('combustivel') == "F")selected @endif
                 >Flex</option>
             </select>
+
         </div>
+
+
+<div class="form-group">
+    <label for="destaque">Destaque:</label>
+
+            <label class="radio-inline">
+                <input type="radio" name="optradio" {{"echo Form::radio('sim', '1', true)"}}>Sim
+            </label>
+            <label class="radio-inline" {{"echo Form::radio('nao', '2', false)"}}>
+                <input type="radio" name="optradio">Não
+            </label>
+</div>
+
+
 
 
         <button type="submit" class="btn btn-primary">Enviar</button>

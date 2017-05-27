@@ -29,7 +29,7 @@
           <th>Ano</th>
           <th>Combustivel</th>
           <th>Preço R$</th>
-        
+
         <th>Data Cad</th>
         <th>Ações</th>
       </tr>
@@ -48,7 +48,7 @@
           <td>{{date_format($carro->created_at, 'd/m/Y')}}</td>
           <td>&nbsp;
               <a href="{{route('carros.edit',$carro->id)}}" class="btn btn-warning" role="button">Alterar</a>
-              <a href="{{route('carros.show' , $carro->id)}}" class="btn btn-info" role="button">Ver</a>
+
               <form style="display: inline-block;" method="POST" action="{{route('carros.destroy', $carro->id)}}"
                     onsubmit="return confirm('Confirma a exclusão?')">
                   {{method_field('DELETE')}}
