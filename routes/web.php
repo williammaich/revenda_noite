@@ -22,6 +22,9 @@
 
 Route::resource('carros', 'CarroController');
 Route::resource('marcas','MarcaController');
+
+
+
 Route::get('carrosfoto/{id}', 'CarroController@foto')
     ->name('carros.foto');
 Route::post('carrosfotostore', 'CarroController@storeFoto')
@@ -38,6 +41,9 @@ Route::post('carrosfiltros', 'CarroController@filtros')
 
 
 Route::get('/','PainelController@titulo');
+Route::get('/','PainelController@loja');
+Route::get('catalogo','PainelController@catalogo');
+
 
 Auth::routes();
 
