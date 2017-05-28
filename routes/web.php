@@ -16,10 +16,10 @@
 //Route::get('/', function () {
 //    return view('index');
 //});
-Route::get('/',function(){
-    return view('usuario.titulo');
-});
-Route::resource('usuarios','UsuarioController');
+//Route::get('/',function(){
+  //  return view('titulo');
+//});
+
 Route::resource('carros', 'CarroController');
 Route::resource('marcas','MarcaController');
 Route::get('carrosfoto/{id}', 'CarroController@foto')
@@ -35,6 +35,9 @@ Route::get('carrosgraf', 'CarroController@graf')
 
 Route::post('carrosfiltros', 'CarroController@filtros')
     ->name('carros.filtros');
+
+
+Route::get('/','PainelController@titulo');
 
 Auth::routes();
 

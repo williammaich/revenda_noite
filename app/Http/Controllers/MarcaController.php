@@ -16,13 +16,10 @@ class MarcaController extends Controller
     public function index()
     {
         if (!Auth::check()) {
-            return redirect('/');
+           return redirect('/arearestrita');
         }
 
-        // $carros = Carro::all();
-        if (!Auth::check()) {
-            return redirect('/');
-        }
+
 
         $marcas = Marca::paginate(3);
 
@@ -37,7 +34,7 @@ class MarcaController extends Controller
     public function create()
     {
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/arearestrita');
         }
         // 1: indica inclusão
         $acao = 1;
