@@ -19,6 +19,7 @@ class CreateCarrosTable extends Migration
             $table->smallInteger('ano');
             $table->decimal('preco', 10, 2);
             $table->enum('combustivel', ['A', 'G', 'D', 'F']);
+            $table->boolean('destaque');
             $table->timestamps();
         });
     }

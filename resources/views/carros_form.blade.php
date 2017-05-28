@@ -110,9 +110,9 @@
     <label for="destaque">Destaque:</label>
 
             <label class="radio-inline">
-                <input type="radio" name="optradio" {{"echo Form::radio('sim', '1', true)"}}>Sim
+                <input type="radio" name="optradio" {{"echo Carros::radio('sim', '1', true)"}}>Sim
             </label>
-            <label class="radio-inline" {{"echo Form::radio('nao', '2', false)"}}>
+            <label class="radio-inline" {{"echo Carros::radio('nao', '2', false)"}}>
                 <input type="radio" name="optradio">Não
             </label>
 </div>
@@ -123,6 +123,7 @@
         <button type="submit" class="btn btn-primary">Enviar</button>
         <button type="reset" class="btn btn-warning">Limpar</button>
 
+    </form>
     </form>
     </div>
 

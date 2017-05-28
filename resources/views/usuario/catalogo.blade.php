@@ -1,5 +1,37 @@
 @extends('titulo')
 @section('catalogo')
 
-    <h2>ola </h2>
+    <div class="container">
+
+
+
+@foreach($paineis as $painel)
+            <tbody>
+            <tr>
+                <td> @php
+                        if(file_exists(public_path('fotos/' . $painel->id . '.jpg'))){
+                        $foto = '../fotos/'.$painel->id . '.jpg';
+                        }else{
+                        $foto = '../fotos/semfoto.jpg';
+                        }
+
+
+                    @endphp
+                    {!! "<img src=$foto id='imagem' width='200' height='150' alt='Foto'>" !!}</td>
+                <td>Nome:  {{$painel->modelo}}  Marca: {{$painel->marca->nome}}    Ano:  {{$painel->ano}}  Preço: {{$painel->preco}}            <br>  </td>
+
+                <td>Descricão                    Botão ver<br></td>
+                <td>&nbsp <br></td>
+            </tr>
+
+
+</tbody>
+
+    @endforeach
+
+    {{$paineis->links()}}
+
+
+    </div>
+
     @endsection

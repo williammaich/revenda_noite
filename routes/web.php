@@ -41,9 +41,11 @@ Route::post('carrosfiltros', 'CarroController@filtros')
 
 
 Route::get('/','PainelController@titulo');
-Route::get('/','PainelController@loja');
-Route::get('catalogo','PainelController@catalogo');
-
+Route::get('/','PainelController@loja_carros');
+Route::get('/','PainelController@catalogo_marcas');
+Route::get('catalogo','PainelController@mostrar');
+Route::get('pinelfoto/{id}', 'CarroController@foto')
+    ->name('painel.foto');
 
 Auth::routes();
 
