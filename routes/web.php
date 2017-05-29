@@ -53,4 +53,6 @@ Route::get('/arearestrita', 'HomeController@index');
 
 Route::get('register', function() {
     return "<h1> Acesso Restrito </h1>";
+
+
 });
