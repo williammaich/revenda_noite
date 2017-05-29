@@ -1,5 +1,18 @@
 @extends('titulo')
 @section('marcass')
+
+
+    <div class="container">
+        <div class="col-sm-9">
+            <h1>vai merda</h1>
+        </div>
+    </div>
+
+
+
+
+
+
     <div class="container">
         <div class="col-sm-9">
             <h2 style="text-align: center">Veiculos por marcas</h2>
@@ -13,6 +26,8 @@
 
 
 @endforeach
+
+
         </div>
     </div>
 

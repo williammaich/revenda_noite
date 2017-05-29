@@ -31,22 +31,22 @@ Route::post('carrosfotostore', 'CarroController@storeFoto')
     ->name('carros.store.foto');
 Route::get('carrospesq', 'CarroController@pesq')
     ->name('carros.pesq');
-
-
 Route::get('carrosgraf', 'CarroController@graf')
     ->name('carros.graf');
-
 Route::post('carrosfiltros', 'CarroController@filtros')
     ->name('carros.filtros');
 
+//-------------------
 
 Route::get('/','PainelController@titulo');
-Route::get('/','PainelController@loja_carros');
+Route::get('/','PainelController@destaque');
 Route::get('/','PainelController@catalogo_marcas');
 Route::get('catalogo','PainelController@mostrar');
 Route::get('pinelfoto/{id}', 'CarroController@foto')
     ->name('painel.foto');
 
+
+//---------------------
 Auth::routes();
 
 Route::get('/arearestrita', 'HomeController@index');

@@ -42,7 +42,7 @@
     <div class="col-sm-9">
         <h2 style="text-align: center">Veiculos em destaque</h2>
 @yield('catalogo')
-@yield('cont')
+@yield('dest')
 
 
 
