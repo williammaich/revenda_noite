@@ -3,7 +3,7 @@
 
     <div class="container">
 
-
+        <h2 style="text-align: center">Veiculos a venda</h2>
 
 @foreach($paineis as $painel)
             <tbody>

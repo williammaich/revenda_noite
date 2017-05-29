@@ -19,7 +19,7 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{url('/catalogo')}}">Carros</a></li>
-            <li><a href="#">Marcas</a></li>
+            <li><a href="{{url('/catalogo_marcas')}}">Marcas</a></li>
             <li><a href="#">Propostas</a></li>
         </ul>
     </div>
@@ -40,7 +40,7 @@
 
 <div class="container">
     <div class="col-sm-9">
-        <h2 style="text-align: center">Veiculos em destaque</h2>
+
 @yield('catalogo')
 @yield('dest')
 

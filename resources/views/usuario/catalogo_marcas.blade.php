@@ -2,11 +2,7 @@
 @section('marcass')
 
 
-    <div class="container">
-        <div class="col-sm-9">
-            <h1>vai merda</h1>
-        </div>
-    </div>
+
 
 
 
