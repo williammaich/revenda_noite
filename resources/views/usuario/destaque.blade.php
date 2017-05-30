@@ -7,6 +7,8 @@
         <div class="col-sm-9">
             <h2 style="text-align: center">Veiculos em destaque</h2>
 @foreach($paineis as $painel)
+
+              @if($painel->destaque == 1)
                 <tr>
                 <td>@php
 
@@ -25,6 +27,8 @@
                     <td>&nbsp<br></td>
 
                 </tr>
+                @endif
+
     @endforeach
 
 

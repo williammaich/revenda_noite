@@ -105,17 +105,10 @@
 
         </div>
 
-
-<div class="form-group">
-    <label for="destaque">Destaque:</label>
-
-            <label class="radio-inline">
-                <input type="radio" name="optradio" {{"echo Carros::radio('sim', '1', true)"}}>Sim
-            </label>
-            <label class="radio-inline" {{"echo Carros::radio('nao', '2', false)"}}>
-                <input type="radio" name="optradio">Não
-            </label>
-</div>
+                <div class="form-group">
+                    <label for="destaque">Destaque:</label>
+                    <input type="checkbox" class="form-control" id="destaque" name="destaque" value="1" >
+                </div>
 
 
 

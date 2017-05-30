@@ -21,7 +21,7 @@ public function destaque(){
 
     //$paineis = Marca::orderBy('destaque')->get();
 
-    $paineis = Carro::paginate(2);
+    $paineis = Carro::paginate(3);
     return view('usuario.destaque', compact('paineis'));
 }
 
