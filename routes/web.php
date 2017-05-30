@@ -40,9 +40,10 @@ Route::post('carrosfiltros', 'CarroController@filtros')
 
 Route::get('/','PainelController@titulo');
 Route::get('/','PainelController@destaque');
+
 Route::get('catalogo_marcas','PainelController@catalogo_marcas');
 Route::get('catalogo','PainelController@mostrar');
-Route::get('pinelfoto/{id}', 'CarroController@foto')
+Route::get('painelfoto/{id}', 'CarroController@foto')
     ->name('painel.foto');
 
 

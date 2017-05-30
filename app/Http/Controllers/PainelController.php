@@ -19,9 +19,9 @@ class PainelController extends Controller
 
 public function destaque(){
 
-    $paineis = Marca::orderBy('nome')->get();
+    //$paineis = Marca::orderBy('destaque')->get();
 
-
+    $paineis = Carro::paginate(2);
     return view('usuario.destaque', compact('paineis'));
 }
 
@@ -44,12 +44,8 @@ public function mostrar(){
         $reg = Carro:: find($id);
         $paineis = Marca::orderBy('nome')->get();
 
-        return view('usuario.catalogo', compact('reg', 'acao', 'paineis'));
+        return view('usuario.catalogo,usuario.destaque', compact('reg', 'acao', 'paineis'));
     }
-
-
-
-
 
 
 public function catalogo_marcas(){

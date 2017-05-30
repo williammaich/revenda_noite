@@ -17,7 +17,7 @@
 
 
                     @endphp
-                    {!! "<img src=$foto id='imagem' width='200' height='150' alt='Foto'>" !!}</td>
+                    {!! "<img src=$foto id='imagem' width='200' height='130' alt='Foto'>" !!}</td>
                 <td>Nome:  {{$painel->modelo}}  Marca: {{$painel->marca->nome}}    Ano:  {{$painel->ano}}  Preço: {{$painel->preco}}            <br>  </td>
 
                 <td>Descricão                    Botão ver<br></td>
