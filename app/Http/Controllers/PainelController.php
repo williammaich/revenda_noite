@@ -69,7 +69,7 @@ public function catalogo_marcas(){
     {
         $modelo = $request->modelo;
         $precomax = $request->precomax;
-        $marca = $request->marca;
+
 
         $filtro = array();
 
@@ -89,6 +89,14 @@ public function catalogo_marcas(){
         return view('usuario.pesq', compact('paineis'));
     }
 
+    public function show($id)
+    {
+        $paineis = new Carro;
+
+        $reg = $paineis -> find($id);
+
+        return view('usuario.veimarcas', compact('reg'));
+    }
 
 
 }
