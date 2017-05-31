@@ -6,6 +6,8 @@
     <div class="container">
         <div class="col-sm-9">
             <h2 style="text-align: center">Veiculos em destaque</h2>
+
+            <tbody>
 @foreach($paineis as $painel)
 
               @if($painel->destaque == 1)
@@ -19,7 +21,7 @@
                 }
                 @endphp
 
-                   <td> {!! "<img src=$foto id='imagem' width='300' height='230' alt='Foto'>" !!}<br></td>
+                   <td> {!! "<img src=$foto id='imagem' width='300' height='210' alt='Foto'>" !!}<br></td>
                     <td>Nome:  {{$painel->modelo}}<br></td>
                     <td>   Marca: {{$painel->marca->nome}}<br></td>
                     <td>  Ano:  {{$painel->ano}} <br></td>
@@ -29,10 +31,14 @@
                 </tr>
                 @endif
 
+
+            </tbody>
     @endforeach
+{{$paineis->links()}}
 
 
         </div>
+
     </div>
 
 

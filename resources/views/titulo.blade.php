@@ -20,7 +20,8 @@
             <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{url('/catalogo')}}">Carros</a></li>
             <li><a href="{{url('/catalogo_marcas')}}">Marcas</a></li>
-            <li><a href="#">Propostas</a></li>
+            <li><a href="{{route('paineis.pesq')}}">Pesquisas</a></li>
+
         </ul>
     </div>
 

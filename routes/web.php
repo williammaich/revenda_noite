@@ -22,6 +22,7 @@
 
 Route::resource('carros', 'CarroController');
 Route::resource('marcas','MarcaController');
+Route::resource('painel','PainelControler');
 
 
 
@@ -43,17 +44,20 @@ Route::get('/','PainelController@destaque');
 
 Route::get('catalogo_marcas','PainelController@catalogo_marcas');
 Route::get('catalogo','PainelController@mostrar');
-Route::get('painelfoto/{id}', 'CarroController@foto')
+Route::get('painelfoto/{id}', 'PainelController@foto')
     ->name('painel.foto');
 
-
+Route::post('painelfiltros', 'PainelController@filtros')
+    ->name('paineis.filtros');
+Route::get('painelpesq', 'PainelController@pesq')
+    ->name('paineis.pesq');
 //---------------------
 Auth::routes();
 
 Route::get('/arearestrita', 'HomeController@index');
 
 Route::get('register', function() {
-    return "<h1> Acesso Restrito </h1>";
+   return "<h1> Acesso Restrito </h1>";
 
 
 });
