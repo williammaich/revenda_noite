@@ -89,8 +89,8 @@ public function catalogo_marcas(){
         return view('usuario.pesq', compact('paineis'));
     }
 
-    public function show($id)
-    {
+    public function veimarcas()
+    {//show
         $paineis = new Carro;
 
         $reg = $paineis -> find($id);

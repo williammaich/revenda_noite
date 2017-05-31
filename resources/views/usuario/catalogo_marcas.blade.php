@@ -14,7 +14,7 @@
             <h2 style="text-align: center">Veiculos por marcas</h2>
 @foreach($paineis as $painel)
 
-    <a href="{{}}" class="btn btn-warning" role="button">{{$painel->nome}}</a>
+    <a href="{{url('/veimarcas')}}" class="btn btn-warning" role="button">{{$painel->nome}}</a>
 
 
 

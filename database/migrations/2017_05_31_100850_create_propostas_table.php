@@ -18,8 +18,7 @@ class CreatePropostasTable extends Migration
             $table->string('nome');
             $table->string('email');
             $table->smallInteger('telefone');
-            $table->decimal('proposta');
-
+            $table->decimal('prop');
             $table->timestamps();
         });
     }

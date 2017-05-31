@@ -15,6 +15,11 @@ class Carro extends Model
         return $this->belongsTo('App\Marca');
     }
 
+    public function proposta()
+    {
+        return $this->belongsTo('App\Proposta');
+    }
+
    public function getCombustivelAttribute($value){
        if($value=="A"){
            return "Álcool";
