@@ -3,9 +3,12 @@
 
     <div class="container">
 
-        <h2 style="text-align: center">Veiculos a venda</h2>
+        <h2 style="text-align: center">Veiculos a venda por marcas</h2>
 
         @foreach($paineis as $painel)
+
+
+
             <tbody>
             <tr>
                 <td> @php
@@ -18,7 +21,7 @@
 
                     @endphp
                     {!! "<img src=$foto id='imagem' width='200' height='130' alt='Foto'>" !!}</td>
-                <td>Nome:  {{$painel->modelo}}  Marca: {{$painel->marca->nome}}    Ano:  {{$painel->ano}}  Preço: {{$painel->preco}}            <br>  </td>
+                <td>Nome:  {{$painel->modelo}}   Marca: {{$painel->marca->nome}}    Ano:  {{$painel->ano}}  Preço: {{$painel->preco}}            <br>  </td>
 
                 <td>Descricão                    Botão ver<br></td>
                 <td>&nbsp <br></td>

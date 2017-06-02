@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Marca;
 use App\Carro;
+use App\Painel;
 
 class PainelController extends Controller
 {
@@ -91,11 +92,51 @@ public function catalogo_marcas(){
 
     public function veimarcas()
     {//show
-        $paineis = new Carro;
+        $paineis = Carro::paginate(5);
 
-        $reg = $paineis -> find($id);
+
+
+        return view('usuario.veimarcas', compact('paineis'));
+    }
+
+    public function edit($id){
+        $reg = Carro:: find($id);
+
+        $marcas = Marca::orderBy('nome')->get();
+
+        return view('usuario.veimarcas', compact('reg', 'marcas'));
+    }
+
+
+
+    public function show($id)
+    {
+        $reg = Carro::find($id);
+
+
 
         return view('usuario.veimarcas', compact('reg'));
+    }
+
+
+    public function store(Request $request)
+    {
+
+        $this->validate($request, [
+            'nome' => 'required',
+            'telefone' => 'required|numeric',
+            'proposta' => 'required|numeric'
+        ]);
+
+        $dados = $request->all();
+        $inc = Carro:: create($dados);
+
+        if ($inc) {
+            return redirect()->
+            route('paineis.index')->
+            with('status', 'Proposta do' . $request->modelo . ' Enviada!');
+        }
+
     }
 
 
