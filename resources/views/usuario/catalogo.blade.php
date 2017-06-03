@@ -20,7 +20,7 @@
                     {!! "<img src=$foto id='imagem' width='200' height='130' alt='Foto'>" !!}</td>
                 <td>Nome:  {{$painel->modelo}}  Marca: {{$painel->marca->nome}}    Ano:  {{$painel->ano}}  Preço: {{$painel->preco}}            <br>  </td>
 
-                <td>Descricão                    Botão ver<br></td>
+                <td><a href="{{Route('painel.store')}}" class="btn btn-warning" role="button">Fazer Proposta</a><br></td>
                 <td>&nbsp <br></td>
             </tr>
 

@@ -89,11 +89,9 @@ class CarroController extends Controller
      */
     public function show($id)
     {
-        $s = new Carro();
-        $reg = $s->find($id);
-        $marcas = Marca::orderBy('nome')->get();
+        $reg = Carro::find($id);
         $acao = 3;
-        return view('carros_form', compact('reg', 'acao', 'marcas'));
+        return view('carros_form', compact('reg','acao'));
     }
 
     /**

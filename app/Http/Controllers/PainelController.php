@@ -133,7 +133,7 @@ public function catalogo_marcas(){
 
         if ($inc) {
             return redirect()->
-            route('paineis.index')->
+            route('paineis.titulo')->
             with('status', 'Proposta do' . $request->modelo . ' Enviada!');
         }
 

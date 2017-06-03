@@ -51,6 +51,8 @@ Route::post('painelfiltros', 'PainelController@filtros')
 Route::get('painelpesq', 'PainelController@pesq')
     ->name('paineis.pesq');
 
+
+
 Route::get('veimarcas','PainelController@veimarcas');
 
 
