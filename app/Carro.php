@@ -30,6 +30,11 @@ class Carro extends Model
        } else if($value=="D"){
            return "Diesel";
        }
+
+
+
+
+
    }
 
 

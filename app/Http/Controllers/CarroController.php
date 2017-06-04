@@ -248,4 +248,43 @@ class CarroController extends Controller
         Mail::to($destinatario)->subject("Promoção de Aniversário")
             ->send(new AvisoPromocao());
     }
+
+    public function destaque() {
+
+        $carros = Carro::where('destaque', '=' ,1)
+            ->orderBy('modelo')
+            ->paginate(5);
+
+        return view('user_home', compact('carros'));
+
+    }
+
+    public function oferta($id) {
+        $reg = Carro::find($id);
+        return view('oferta', compact('reg'));
+    }
+
+    public function storedestaque($id) {
+        $reg = Carro::find($id);
+        if ($reg->destaque == 0) {
+            DB::table('carros')
+                ->where('id', $id)
+                ->update(['destaque' => 1]);
+        } else {
+            DB::table('carros')
+                ->where('id', $id)
+                ->update(['destaque' => 0]);
+        }
+        return redirect()->route('carros.index');
+    }
+
+    public function marcasGetId($marca) {
+        $marcas = Marca::all();
+        foreach ($marcas as $marc) {
+            if ($marc->nome == $marca) {
+                $marca_Id = $marc->id;
+                return $marca_Id;
+            }
+        }
+    }
 }

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 use App\Marca;
 use App\Carro;
 use App\Painel;
+use App\Proposta;
 
 class PainelController extends Controller
 {
@@ -32,6 +32,8 @@ public function catalogo(){
     $paineis = Marca::orderBy('nome')->get();
     return view('usuario.catalogo',compact('paineis'));
 }
+
+
 
 public function mostrar(){
 
@@ -119,25 +121,10 @@ public function catalogo_marcas(){
     }
 
 
-    public function store(Request $request)
-    {
 
-        $this->validate($request, [
-            'nome' => 'required',
-            'telefone' => 'required|numeric',
-            'proposta' => 'required|numeric'
-        ]);
 
-        $dados = $request->all();
-        $inc = Carro:: create($dados);
 
-        if ($inc) {
-            return redirect()->
-            route('paineis.titulo')->
-            with('status', 'Proposta do' . $request->modelo . ' Enviada!');
-        }
 
-    }
 
 
 }

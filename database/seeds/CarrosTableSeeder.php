@@ -17,7 +17,7 @@ class CarrosTableSeeder extends Seeder {
             'ano' => '2014',
             'combustivel'=>'F',
             'preco' => '23500.00',
-            'destaque'=>1,
+'destaque'=>'1',
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
 
@@ -31,7 +31,7 @@ class CarrosTableSeeder extends Seeder {
             'ano' => '2012',
             'combustivel'=>'A',
             'preco' => '16800.00',
-            'destaque'=>0,
+            'destaque'=>'0',
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
@@ -44,7 +44,7 @@ class CarrosTableSeeder extends Seeder {
             'ano' => '2015',
             'combustivel'=>'F',
             'preco' => '24900.00',
-            'destaque'=>1,
+            'destaque'=>'0',
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);

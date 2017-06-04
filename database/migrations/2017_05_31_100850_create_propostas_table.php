@@ -15,10 +15,10 @@ class CreatePropostasTable extends Migration
     {
         Schema::create('propostas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('email');
-            $table->smallInteger('telefone');
-            $table->decimal('prop');
+            $table->string('nome',60);
+            $table->string('telefone',20);
+            $table->string('email',60);
+            $table->decimal('preco',10,2);
             $table->timestamps();
         });
     }

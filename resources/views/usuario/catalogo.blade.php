@@ -1,9 +1,11 @@
-@extends('titulo')
+@extends('usuario.titulo')
 @section('catalogo')
 
     <div class="container">
 
         <h2 style="text-align: center">Veiculos a venda</h2>
+
+
 
 @foreach($paineis as $painel)
             <tbody>
@@ -20,7 +22,7 @@
                     {!! "<img src=$foto id='imagem' width='200' height='130' alt='Foto'>" !!}</td>
                 <td>Nome:  {{$painel->modelo}}  Marca: {{$painel->marca->nome}}    Ano:  {{$painel->ano}}  Preço: {{$painel->preco}}            <br>  </td>
 
-                <td><a href="{{Route('painel.store')}}" class="btn btn-warning" role="button">Fazer Proposta</a><br></td>
+                <td><a href="{{('carro_prop/') }}" class="btn btn-warning" role="button">Fazer Proposta</a><br></td>
                 <td>&nbsp <br></td>
             </tr>
 

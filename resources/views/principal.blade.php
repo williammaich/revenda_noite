@@ -41,7 +41,7 @@
       </li>
 
 
-      <li><a href="#">Relatorio</a></li>
+      <li><a href="{{url('propostas_list')}}">Relatorio de Propostas</a></li>
        <li><a href="#">Utilitário</a></li>
     </ul>
 

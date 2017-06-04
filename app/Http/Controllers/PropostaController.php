@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Carro;
@@ -17,7 +18,9 @@ class PropostaController extends Controller
      */
     public function index()
     {
-
+        if (!(Auth::check())) {
+            return redirect('/');
+        }
         $propostas = Proposta::all();
 
         return view('propostas_list', compact('propostas'));
@@ -112,4 +115,3 @@ class PropostaController extends Controller
         return view('propostas_graf', compact('propostas'));
     }
 }
-

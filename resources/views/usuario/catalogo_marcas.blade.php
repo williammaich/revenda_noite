@@ -1,4 +1,4 @@
-@extends('titulo')
+@extends('usuario.titulo')
 @section('marcass')
 
 
