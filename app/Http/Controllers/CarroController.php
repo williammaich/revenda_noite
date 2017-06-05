@@ -253,7 +253,7 @@ class CarroController extends Controller
 
         $carros = Carro::where('destaque', '=' ,1)
             ->orderBy('modelo')
-            ->paginate(5);
+            ->paginate(3);
 
         return view('user_home', compact('carros'));
 
@@ -263,6 +263,9 @@ class CarroController extends Controller
         $reg = Carro::find($id);
         return view('oferta', compact('reg'));
     }
+
+
+
 
     public function storedestaque($id) {
         $reg = Carro::find($id);
@@ -275,7 +278,7 @@ class CarroController extends Controller
                 ->where('id', $id)
                 ->update(['destaque' => 0]);
         }
-        return redirect()->route('carros.index');
+        return redirect()->route('carros.destaque');
     }
 
     public function marcasGetId($marca) {
@@ -286,5 +289,21 @@ class CarroController extends Controller
                 return $marca_Id;
             }
         }
+    }
+
+    public function editt($id)
+    {
+        $reg = Carro::find($id);
+
+        $acao = 1;
+
+        return view('oferta', compact('reg','acao'));
+    }
+
+    public function mostrar(){
+
+        $carros = Carro::paginate(5);
+
+        return view('catalogo', compact('carros'));
     }
 }

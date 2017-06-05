@@ -114,4 +114,22 @@ class PropostaController extends Controller
             ->get();
         return view('propostas_graf', compact('propostas'));
     }
+
+
+    public function storedestaque($id) {
+        $reg = Carro::find($id);
+        if ($reg->destaque == 0) {
+            DB::table('carros')
+                ->where('id', $id)
+                ->update(['destaque' => 1]);
+        } else {
+            DB::table('carros')
+                ->where('id', $id)
+                ->update(['destaque' => 0]);
+        }
+        return redirect()->route('carros.destaque');
+    }
+
+
+
 }

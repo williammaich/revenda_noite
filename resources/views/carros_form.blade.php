@@ -105,18 +105,14 @@
 
         </div>
 
-                <div class="form-group">
-                    <label for="destaque">Destaque:</label>
-                    <input type="checkbox" class="form-control" id="destaque" name="destaque" value="1" >
-                </div>
+
 
 
 
 
         <button type="submit" class="btn btn-primary">Enviar</button>
         <button type="reset" class="btn btn-warning">Limpar</button>
-
-    </form>
+            </form>
     </form>
     </div>
 

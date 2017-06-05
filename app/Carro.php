@@ -10,6 +10,8 @@ class Carro extends Model
 
     protected $fillable = array('modelo','marca_id','cor','ano','preco','combustivel','destaque');
 
+
+
     public function marca()
     {
         return $this->belongsTo('App\Marca');

@@ -1,50 +1,50 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "barryvdh/laravel-ide-helper",
+    "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+    "keywords": ["laravel", "autocomplete", "ide", "helper", "phpstorm", "netbeans", "sublime", "codeintel", "phpdoc"],
     "license": "MIT",
-    "type": "project",
+    "authors": [
+        {
+            "name": "Barry vd. Heuvel",
+            "email": "barryvdh@gmail.com"
+        }
+    ],
     "require": {
-        "php": ">=5.6.4",
-        "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "php": ">=5.4.0",
+        "illuminate/support": "^5.0,<5.5",
+        "illuminate/console": "^5.0,<5.5",
+        "illuminate/filesystem": "^5.0,<5.5",
+        "barryvdh/reflection-docblock": "^2.0.4",
+        "symfony/class-loader": "^2.3|^3.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "illuminate/config": "^5.0,<5.5",
+        "illuminate/view": "^5.0,<5.5",
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1",
+        "squizlabs/php_codesniffer": "~2.3",
+        "doctrine/dbal": "~2.3"
+    },
+    "suggest": {
+        "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
     },
     "autoload": {
-        "classmap": [
-            "database"
-        ],
         "psr-4": {
-            "App\\": "app/"
+            "Barryvdh\\LaravelIdeHelper\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            ":vendor\\:package_name\\": "tests"
         }
     },
     "scripts": {
-        "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "php artisan key:generate"
-        ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
-        ]
+        "test": "phpunit",
+        "cs": "phpcs --standard=psr2 src/"
     },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.3-dev"
+        }
     }
 }

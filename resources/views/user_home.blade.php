@@ -22,7 +22,8 @@
     <div class="col-sm-7">
         <hr>
         <ul>
-            <li><a>Catalogo </a>&nbsp;&nbsp; |</li>
+            <li><a href="{{'/'}}">Home</a></li>
+            <li><a href="{{('catalogo')}}">Catalogo </a>&nbsp;&nbsp; |</li>
             <li><a>Marcas </a>&nbsp;&nbsp; |</li>
             <li><a>Pesquisas</a></li>
         </ul>
@@ -32,34 +33,36 @@
 <section class="col-sm-12">
     <hr><br>
     <div class="col-sm-1"></div>
+
+
+
     <div class="col-sm-2">
-        <form method="POST" >
-            <ul>
-                <li></li>
-                <li>Marca: <input type="text" size="10" name="marca"></li>
-                <li>Modelo: <input type="text" size="10" name="modelo"></li>
-                <li>Ano: <input type="text" size="4" max="4" name="ano"></li>
-                <li><input type="submit" value="Buscar">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset"></li>
-            </ul>
-        </form>
+        <img src="fotos/heb.jpg" width="300" height="200">
     </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-9">
-        <img src="fotos/heb.jpg" width="65%">
-    </div>
+    <div class="col-sm-6"><h2 style="text-align: right;  font-family: 'Fredericka the Great', cursive;">Os melhores preços da cidade</h2></div>
+    <div class="col-sm-6"><h2 style="text-align: right; font-family:  'Fredericka the Great', cursive;"   >Confie no fusca!!</h2></div>
 </section>
+
+@yield('catalogo')
+
+
 <article class="col-sm-12">
-    <h2>Destaques</h2>
-    <br><hr><br>
-    @foreach($carros as $carro)
-        <ul>
-            @if (file_exists(public_path('fotos/'.$carro->id.'.jpg')))
-                <li><a href="{{route('proposta.edit', $carro->id)}}"><img src="fotos/{{$carro->id}}.jpg" width="300" height="200" alt="carro"></a></li>
-            @else
-                <li><a><img src="fotos/semfoto.jpg" width="300" height="200" alt="carro"></a></li>
-            @endif
-        </ul>
-    @endforeach
+    <div class="container">
+        <h2 style="font-family:  'Fredericka the Great', cursive;text-align: center">Destaques</h2>
+        <br><hr><br>
+        @foreach($carros as $carro)
+            <ul>
+                @if (file_exists(public_path('fotos/'.$carro->id.'.jpg')))
+                    <li><a href="{{route('propostas.edit', $carro->id)}}"><img src="fotos/{{$carro->id}}.jpg" width="300" height="200" alt="carro"></a></li>
+                    <li>Modelo:{{$carro->modelo}}</li>
+                    <li>Valor:{{$carro->preco}}</li>
+                    <li><a><img src="fotos/semfoto.jpg" width="300" height="200" alt="carro"></a></li>
+                @endif
+            </ul>
+
+
+        @endforeach
+    </div>
 </article>
 <footer class="col-sm-12">
     <br><hr><br>

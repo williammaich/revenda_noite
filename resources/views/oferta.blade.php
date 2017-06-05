@@ -33,9 +33,9 @@
                         <h3>Preço R$: {{$reg->preco}}</h3>
 
                         @if ($acao == 1)
-                            <form method="post" action="{{route('proposta.store')}}">
+                            <form method="post" action="{{route('propostas.store')}}">
                                 {{csrf_field()}}
-                                <input type="hidden" name="carro_id" name="carro_id"
+                                <input type="hidden" name="carro_id" id="carro_id"
                                        value="{{$reg->id}}">
                                 <p>Nome: <input type="text" name="nome"
                                                 size="25" maxlength="25">
@@ -85,7 +85,7 @@
                             </tbody>
                         </table>
                     </div>
-
+        </section>
     @endif
 
 @endsection

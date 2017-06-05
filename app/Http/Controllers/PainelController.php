@@ -23,14 +23,16 @@ public function destaque(){
     //$paineis = Marca::orderBy('destaque')->get();
 
     $paineis = Carro::paginate(5);
-    return view('usuario.destaque', compact('paineis'));
+    return view('destaque', compact('paineis'));
 }
 
 
 public function catalogo(){
 
-    $paineis = Marca::orderBy('nome')->get();
-    return view('usuario.catalogo',compact('paineis'));
+
+   $paineis = Carro::paginate(3);
+
+    return view('catalogo',compact('paineis'));
 }
 
 
@@ -39,7 +41,7 @@ public function mostrar(){
 
     $paineis = Carro::paginate(5);
 
-    return view('usuario.catalogo', compact('paineis'));
+    return view('catalogo', compact('paineis'));
 }
 
     public function foto($id)
