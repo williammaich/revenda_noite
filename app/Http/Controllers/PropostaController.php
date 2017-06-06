@@ -77,11 +77,11 @@ class PropostaController extends Controller
      */
     public function edit($id)
     {
+        $carros = Carro::all();
         $reg = Carro::find($id);
 
         $acao = 1;
-
-        return view('oferta', compact('reg','acao'));
+        return view('ofertas', compact('reg','acao','carros'));
     }
 
     /**
@@ -114,6 +114,7 @@ class PropostaController extends Controller
             ->get();
         return view('propostas_graf', compact('propostas'));
     }
+
 
 
     public function storedestaque($id) {

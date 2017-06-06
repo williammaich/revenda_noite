@@ -15,6 +15,7 @@
             @endif
             </p>
     </div>
+
     <div class="container">
         <table class="table table-hover">
             <thead>
@@ -36,6 +37,8 @@
                     <td>{{$prop->email}}</td>
                     <td>{{number_format($prop->preco, '2', ',', '.')}}</td>
                     <td>{{date_format ($prop->created_at, 'd/m/Y')}}</td>
+
+                    <td>   <a href="#" class="btn btn-primary" role="button">Aceitar proposta</a></td>
                 </tr>
             @endforeach
             </tbody>

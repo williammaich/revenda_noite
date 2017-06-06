@@ -291,7 +291,27 @@ class CarroController extends Controller
         }
     }
 
-    public function editt($id)
+
+    public function pesquisar()
+    {
+
+        $carros = Carro::paginate(3);
+
+        return view('user_pesquisa', compact('carros'));
+    }
+
+
+
+
+    public function mostrar(){
+
+        $carros = Carro::paginate(5);
+
+        return view('catalogo', compact('carros'));
+    }
+
+
+    public function edita($id)
     {
         $reg = Carro::find($id);
 
@@ -300,10 +320,5 @@ class CarroController extends Controller
         return view('oferta', compact('reg','acao'));
     }
 
-    public function mostrar(){
 
-        $carros = Carro::paginate(5);
-
-        return view('catalogo', compact('carros'));
-    }
 }

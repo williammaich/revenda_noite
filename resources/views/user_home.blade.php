@@ -25,7 +25,7 @@
             <li><a href="{{'/'}}">Home</a></li>
             <li><a href="{{('catalogo')}}">Catalogo </a>&nbsp;&nbsp; |</li>
             <li><a>Marcas </a>&nbsp;&nbsp; |</li>
-            <li><a>Pesquisas</a></li>
+            <li><a href="{{('user_pesquisa')}}">Pesquisas</a></li>
         </ul>
         <hr>
     </div>
@@ -43,6 +43,8 @@
     <div class="col-sm-6"><h2 style="text-align: right; font-family:  'Fredericka the Great', cursive;"   >Confie no fusca!!</h2></div>
 </section>
 
+
+@yield('conteudo')
 @yield('catalogo')
 
 
@@ -53,7 +55,7 @@
         @foreach($carros as $carro)
             <ul>
                 @if (file_exists(public_path('fotos/'.$carro->id.'.jpg')))
-                    <li><a href="{{route('propostas.edit', $carro->id)}}"><img src="fotos/{{$carro->id}}.jpg" width="300" height="200" alt="carro"></a></li>
+                    <li><a href="{{route('propostas.edit' , $carro->id)}}"><img src="fotos/{{$carro->id}}.jpg" width="300" height="200" alt="carro"></a></li>
                     <li>Modelo:{{$carro->modelo}}</li>
                     <li>Valor:{{$carro->preco}}</li>
                     <li><a><img src="fotos/semfoto.jpg" width="300" height="200" alt="carro"></a></li>

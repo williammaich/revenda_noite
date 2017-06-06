@@ -66,7 +66,7 @@ public function catalogo_marcas(){
 
         $paineis = Carro::paginate(3);
 
-        return view('usuario.pesq', compact('paineis'));
+        return view('user_pesquisa', compact('paineis'));
     }
 
 

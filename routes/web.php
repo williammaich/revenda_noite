@@ -15,8 +15,7 @@
 
 
 //use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+
 
 //use Symfony\Component\Routing\Annotation\Route;
 
@@ -43,13 +42,12 @@ Route::resource('paineis','PainelController');
 
 Route::get('carrosfoto/{id}', 'CarroController@foto')
     ->name('carros.foto');
+
 Route::post('carrosfotostore', 'CarroController@storeFoto')
     ->name('carros.store.foto');
 
-Route::get('carrosoferta/{id}', 'CarroController@oferta')
-    ->name('carros.oferta');
-
-
+//Route::get('carrosoferta/{id}', 'CarroController@oferta')
+  //  ->name('carros.oferta');
 
 Route::get('carrospesq', 'CarroController@pesq')
     ->name('carros.pesq');
@@ -57,14 +55,16 @@ Route::get('carrospesq', 'CarroController@pesq')
 Route::get('carrosgraf', 'CarroController@graf')
     ->name('carros.graf');
 
+Route::get('propostasgraf','PropostaController@graf')
+->name('propostas.graf');
+
 Route::post('carrosfiltros', 'CarroController@filtros')
     ->name('carros.filtros');
 
-//----------------
-
 Route::get('propostas_list','PropostaController@index');
+//---------------------------------------------
 
-//Route::get('/home', 'HomeController@index');
+
 
 Route::get('/home', 'CarroController@destaque')->name('carros.home');
 
@@ -76,15 +76,21 @@ Route::get('carrosstoredestaque/{id}', 'CarroController@storedestaque')
 
 Route::get('catalogo','CarroController@mostrar');
 
-Route::get('propostasoferta/{id}', 'PropostaController@edit');
+Route::get('user_pesquisa','CarroController@pesquisar');
+
+//Route::get('propostasoferta/{id}', 'PropostaController@edit');
 //Route::get('oferta', 'CarroController@oferta');
 
 
 
-
+//Route::get('carros.edita/{id}','CarroController@edita')
+ //->name('carros.oferta');
 //Route::get('propostasstoredestaque/{id}', 'PropostaController@storedestaque')
   //  ->name('propostas.store.destaque');
 
+
+
+//-------------------------------------------------------------------
 Auth::routes();
 
 Route::get('/arearestrita', 'HomeController@index');
