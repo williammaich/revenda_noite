@@ -3,7 +3,7 @@
 
     <div class="container">
 
-        <h2 style="text-align: center; font-family: 'Fredericka the Great', cursive;">Veiculos a venda</h2>
+        <h1 style="text-align: center; font-family: 'Fredericka the Great', cursive;">Veiculos a venda</h1>
 
 
 
@@ -19,10 +19,18 @@
 
 
                     @endphp
-                    {!! "<img src=$foto id='imagem' width='200' height='130' alt='Foto'>" !!}</td>
-                <td>Nome:  {{$carro->modelo}}  Marca: {{$carro->marca->nome}}    Ano:  {{$carro->ano}}  Preço: {{$carro->preco}}            <br>  </td>
+                <td>&nbsp;<br></td>
 
-                <td><a href="{{('carro_prop/') }}" class="btn btn-warning" role="button">Fazer Proposta</a><br></td>
+                    <div class="col-sm-6">
+                    {!! "<img src=$foto id='imagem' width='300' height='210' alt='Foto'>" !!}</td>
+                          </div>
+
+                <td><h3>Nome:  {{$carro->modelo}}</h3>
+                <td><h3>  Marca: {{$carro->marca->nome}}</h3></td>
+                <td><h3>Ano:  {{$carro->ano}}</h3></td>
+                <td><h3>Preço: {{$carro->preco}}   </h3><br>  </td>
+
+                <td><a href="{{route('propostas.edit' , $carro->id) }}" class="btn btn-warning" role="button">Fazer Proposta</a><br></td>
                 <td>&nbsp <br></td>
             </tr>
 

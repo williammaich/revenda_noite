@@ -18,9 +18,14 @@
                                 $foto = '/fotos/sem_foto.jpg';
                             }
                         @endphp
-                        {!!"<img src=$foto id='imagem' width='100%' height='100%' alt='foto'>"!!}
+                        {!!"<img src=$foto id='imagem' width='400' height='300' alt='foto'>"!!}
                     </div>
+
+                    </div>
+
                     <div class="col-sm-6">
+                        <h2>Detalhes</h2>
+
                         <hr>
                         <h3>Marca: {{$reg->marca->nome}}</h3>
                         <hr>
@@ -33,18 +38,25 @@
                         <h3>Preço R$: {{$reg->preco}}</h3>
 
                         @if ($acao == 1)
+
+
+                            <div class="col-sm-12">
+
                             <form method="post" action="{{route('propostas.store')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" name="carro_id" id="carro_id"
                                        value="{{$reg->id}}">
                                 <p>Nome: <input type="text" name="nome"
                                                 size="25" maxlength="25">
+
+                                <p> Telefone: <input type="text" name="telefone"
+                                           size="25" maxlength="25">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     E-mail: <input type="email" name="email"
                                                    size="25" maxlength="30">
                                 </p>
                                 <p>Valor: <input type="text" maxlength="6" name="preco"
-                                                 id="precomax">
+                                                 id="precomax"  value="{{$reg->preco or old('preco')}}">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="submit"
                                            value="Enviar">
@@ -52,9 +64,14 @@
                                     <input type="reset"
                                            value="Limpar"></p>
                             </form>
+
+                            </div>
+
+
+
                         @endif
                         <hr>
-                    </div>
+
                     <hr>
                 </section>
                 @if ($acao == 2)

@@ -22,7 +22,7 @@
     <div class="col-sm-7">
         <hr>
         <ul>
-            <li><a href="{{'/'}}">Home</a></li>
+            <li><a href="{{'/'}}">Home</a>    |</li>
             <li><a href="{{('catalogo')}}">Catalogo </a>&nbsp;&nbsp; |</li>
             <li><a>Marcas </a>&nbsp;&nbsp; |</li>
             <li><a href="{{('user_pesquisa')}}">Pesquisas</a></li>
@@ -39,8 +39,8 @@
     <div class="col-sm-2">
         <img src="fotos/heb.jpg" width="300" height="200">
     </div>
-    <div class="col-sm-6"><h2 style="text-align: right;  font-family: 'Fredericka the Great', cursive;">Os melhores preços da cidade</h2></div>
-    <div class="col-sm-6"><h2 style="text-align: right; font-family:  'Fredericka the Great', cursive;"   >Confie no fusca!!</h2></div>
+    <div class="col-sm-6"><h1 style="text-align: right;  font-family: 'Fredericka the Great', cursive;">Os melhores preços da cidade</h1></div>
+    <div class="col-sm-6"><h1 style="text-align: right; font-family:  'Fredericka the Great', cursive;"   >Confie no fusca!!</h1></div>
 </section>
 
 

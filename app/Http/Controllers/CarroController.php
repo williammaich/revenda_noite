@@ -229,18 +229,13 @@ class CarroController extends Controller
         return view('carros_pesq', compact('carros'));
     }
 
-    public function graf(){
-
-
-
+    public function graf() {
         $carros = DB::table('carros')
             ->join('marcas', 'carros.marca_id', '=', 'marcas.id')
             ->select('marcas.nome as marca', DB::raw('count(*) as num'))
             ->groupBy('marcas.nome')
             ->get();
-
-
-        return view ("carros_graf",compact('carros'));
+        return view('carros_graf', compact('carros'));
     }
 
     public function enviaMail(){
