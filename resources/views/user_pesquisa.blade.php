@@ -2,16 +2,27 @@
 @section('conteudo')
 
 
-    <div class="col-sm-2">
-        <form method="POST" >
+    <div class="col-sm-12">
+        <form method="POST" action="{{route('carros.filtros3')}}">
+            {{csrf_field()}}
             <ul>
-                <li></li>
-                <li>Marca: <input type="text" size="10" name="marca"></li>
-                <li>Modelo: <input type="text" size="10" name="modelo"></li>
-                <li>Ano: <input type="text" size="4" max="4" name="ano"></li>
-                <li><input type="submit" value="Buscar">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset"></li>
+
+                <td><h3>Marca: <input type="text" size="30" name="marca"></h3></td>
+                <td><h3>Modelo: <input type="text" size="30" name="modelo"></h3></td>
+                <td><h3>Ano: <input type="text" size="4" max="4" name="ano"></h3></td>
+                <td><input type="submit" value="Buscar">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset"></td>
             </ul>
         </form>
+
+        <div class='col-sm-12'>
+
+            @if (count($carros)==0)
+                <div class="alert alert-danger">
+                    Não há carros com os filtros informados...
+                </div>
+            @endif
+
+
     </div>
 
 

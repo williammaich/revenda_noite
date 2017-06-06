@@ -46,8 +46,6 @@ Route::get('carrosfoto/{id}', 'CarroController@foto')
 Route::post('carrosfotostore', 'CarroController@storeFoto')
     ->name('carros.store.foto');
 
-//Route::get('carrosoferta/{id}', 'CarroController@oferta')
-  //  ->name('carros.oferta');
 
 Route::get('carrospesq', 'CarroController@pesq')
     ->name('carros.pesq');
@@ -64,29 +62,25 @@ Route::post('carrosfiltros', 'CarroController@filtros')
 Route::get('propostas_list','PropostaController@index');
 //---------------------------------------------
 
-
+Route::post('carrosfiltros3', 'CarroController@filtros3')
+    ->name('carros.filtros3');
 
 Route::get('/home', 'CarroController@destaque')->name('carros.home');
 
 Route::get('carrosstoredestaque/{id}', 'CarroController@storedestaque')
     ->name('carros.store.destaque');
 
-//Route::get('/proposta/{id}/edit','PropostaController@edit');
 
 
 Route::get('catalogo','CarroController@mostrar');
 
 Route::get('user_pesquisa','CarroController@pesquisar');
 
-//Route::get('propostasoferta/{id}', 'PropostaController@edit');
-//Route::get('oferta', 'CarroController@oferta');
 
 
 
-//Route::get('carros.edita/{id}','CarroController@edita')
- //->name('carros.oferta');
-//Route::get('propostasstoredestaque/{id}', 'PropostaController@storedestaque')
-  //  ->name('propostas.store.destaque');
+
+;
 
 
 

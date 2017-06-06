@@ -216,6 +216,44 @@ class CarroController extends Controller
         return view('carros_pesq', compact('carros'));
     }
 
+
+    public function filtros3(Request $request) {
+
+        $modelo = $request->modelo;
+        $value = $request->precomax;
+        $marca = $request->marca;
+        $ano = $request->ano;
+
+        $novo1 = str_replace('.', '', $value);
+        $novo2 = str_replace(',', '.', $novo1);
+        $precomax = $novo2;
+
+        $filtro = array();
+
+        if (!empty($modelo)) {
+            array_push($filtro, array('modelo', 'like', '%'.$modelo.'%'));
+        }
+        if (!empty($precomax)) {
+            array_push($filtro, array('preco', '<=', $precomax));
+        }
+        if (!empty($marca)) {
+            array_push($filtro, array('marca_id', '=', $this->marcasGetId($marca)));
+        }
+        if (!empty($ano)) {
+            array_push($filtro, array('ano', '=', $ano));
+        }
+        $carros = carro::where($filtro)
+            ->orderBy('modelo')
+            ->paginate(3);
+
+        return view('user_pesquisa', compact('carros', 'ex'));
+    }
+
+
+
+
+
+
     public function filtros2(Request $request)
     {
         $modelo = $request->modelo;
