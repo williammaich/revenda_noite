@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 use App\Marca;
 use App\Carro;
+use App\Painel;
+use App\Proposta;
 
 class PainelController extends Controller
 {
@@ -17,27 +18,31 @@ class PainelController extends Controller
         return view('titulo',compact('paineis'));
     }
 
-public function destaque(){
+    public function destaque(){
 
-    //$paineis = Marca::orderBy('destaque')->get();
+        //$paineis = Marca::orderBy('destaque')->get();
 
-    $paineis = Carro::paginate(5);
-    return view('usuario.destaque', compact('paineis'));
-}
+        $paineis = Carro::paginate(5);
+        return view('destaque', compact('paineis'));
+    }
 
 
-public function catalogo(){
+    public function catalogo(){
 
-    $paineis = Marca::orderBy('nome')->get();
-    return view('usuario.catalogo',compact('paineis'));
-}
 
-public function mostrar(){
+        $paineis = Carro::paginate(3);
 
-    $paineis = Carro::paginate(5);
+        return view('catalogo',compact('paineis'));
+    }
 
-    return view('usuario.catalogo', compact('paineis'));
-}
+
+
+    public function mostrar(){
+
+        $paineis = Carro::paginate(5);
+
+        return view('catalogo', compact('paineis'));
+    }
 
     public function foto($id)
     {
@@ -48,20 +53,20 @@ public function mostrar(){
     }
 
 
-public function catalogo_marcas(){
+    public function catalogo_marcas(){
 
-    $paineis = Marca::orderBy('nome')->get();
+        $paineis = Marca::orderBy('nome')->get();
 
 
-    return view('usuario.catalogo_marcas', compact('paineis'));
-}
+        return view('usuario.catalogo_marcas', compact('paineis'));
+    }
 
     public function pesq()
     {
 
         $paineis = Carro::paginate(3);
 
-        return view('usuario.pesq', compact('paineis'));
+        return view('user_pesquisa', compact('paineis'));
     }
 
 
@@ -69,7 +74,7 @@ public function catalogo_marcas(){
     {
         $modelo = $request->modelo;
         $precomax = $request->precomax;
-        $marca = $request->marca;
+
 
         $filtro = array();
 
@@ -88,6 +93,39 @@ public function catalogo_marcas(){
 
         return view('usuario.pesq', compact('paineis'));
     }
+
+    public function veimarcas()
+    {//show
+        $paineis = Carro::paginate(5);
+
+
+
+        return view('usuario.veimarcas', compact('paineis'));
+    }
+
+    public function edit($id){
+        $reg = Carro:: find($id);
+
+        $marcas = Marca::orderBy('nome')->get();
+
+        return view('usuario.veimarcas', compact('reg', 'marcas'));
+    }
+
+
+
+    public function show($id)
+    {
+        $reg = Carro::find($id);
+
+
+
+        return view('usuario.veimarcas', compact('reg'));
+    }
+
+
+
+
+
 
 
 

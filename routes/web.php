@@ -13,51 +13,82 @@
 |
 */
 
+
+//use Illuminate\Routing\Route;
+
+
+//use Symfony\Component\Routing\Annotation\Route;
+
+//use Symfony\Component\Routing\Route;
+
+
 //Route::get('/', function () {
-//    return view('index');
+  //  return view('index');
 //});
 //Route::get('/',function(){
-  //  return view('titulo');
+//  return view('titulo');
 //});
 
+Route::get('/', 'CarroController@destaque')
+    ->name('carros.destaque');
+
 Route::resource('carros', 'CarroController');
-Route::resource('marcas','MarcaController');
-Route::resource('painel','PainelControler');
 
+Route::resource('marcas', 'MarcaController');
 
+Route::resource('propostas', 'PropostaController');
+
+Route::resource('paineis','PainelController');
 
 Route::get('carrosfoto/{id}', 'CarroController@foto')
     ->name('carros.foto');
+
 Route::post('carrosfotostore', 'CarroController@storeFoto')
     ->name('carros.store.foto');
+
+
 Route::get('carrospesq', 'CarroController@pesq')
     ->name('carros.pesq');
+
 Route::get('carrosgraf', 'CarroController@graf')
     ->name('carros.graf');
+
+Route::get('propostasgraf','PropostaController@graf')
+    ->name('propostas.graf');
+
 Route::post('carrosfiltros', 'CarroController@filtros')
     ->name('carros.filtros');
 
-//-------------------
+Route::get('propostas_list','PropostaController@index');
+//---------------------------------------------
 
-Route::get('/','PainelController@titulo');
-Route::get('/','PainelController@destaque');
+Route::post('carrosfiltros3', 'CarroController@filtros3')
+    ->name('carros.filtros3');
 
-Route::get('catalogo_marcas','PainelController@catalogo_marcas');
-Route::get('catalogo','PainelController@mostrar');
-Route::get('painelfoto/{id}', 'PainelController@foto')
-    ->name('painel.foto');
+Route::get('/home', 'CarroController@destaque')->name('carros.home');
 
-Route::post('painelfiltros', 'PainelController@filtros')
-    ->name('paineis.filtros');
-Route::get('painelpesq', 'PainelController@pesq')
-    ->name('paineis.pesq');
-//---------------------
+Route::get('carrosstoredestaque/{id}', 'CarroController@storedestaque')
+    ->name('carros.store.destaque');
+
+
+
+Route::get('catalogo','CarroController@mostrar');
+
+Route::get('user_pesquisa','CarroController@pesquisar');
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------
 Auth::routes();
 
 Route::get('/arearestrita', 'HomeController@index');
-
+/*
 Route::get('register', function() {
-   return "<h1> Acesso Restrito </h1>";
-
-
-});
+    return "<h1> Acesso Restrito </h1>";
+});*/

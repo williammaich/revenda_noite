@@ -8,12 +8,12 @@
 
         @if($acao == 1)
 
-        <h2>Inclusão de Marcas</h2>
+            <h2>Inclusão de Marcas</h2>
 
         @else
 
-                <h2>Alteração de Marcas</h2>
-      @endif
+            <h2>Alteração de Marcas</h2>
+        @endif
 
     </div>
 
@@ -36,34 +36,34 @@
 
 
 
-     @if($acao == 1)
-    <form method="post" action="{{route('marcas.store')}}">
-    @else
-            <form method="post" action="{{route('marcas.update',$reg->id)}}">
-               {!! method_field('put') !!}
-                @endif
+        @if($acao == 1)
+            <form method="post" action="{{route('marcas.store')}}">
+                @else
+                    <form method="post" action="{{route('marcas.update',$reg->id)}}">
+                        {!! method_field('put') !!}
+                        @endif
 
 
-        {{csrf_field()}}
+                        {{csrf_field()}}
 
 
 
-        <div class="form-group">
-            <label for="nome">Marca:</label>
-            <input type="text" class="form-control" id="nome" name="nome"  value="{{$reg->nome or old('nome')}}" required>
-        </div>
+                        <div class="form-group">
+                            <label for="nome">Marca:</label>
+                            <input type="text" class="form-control" id="nome" name="nome"  value="{{$reg->nome or old('nome')}}" required>
+                        </div>
 
 
-        <div class="form-group">
-            <label for="pais">Pais:</label>
-            <input type="text" class="form-control" id="pais" name="pais" value="{{$reg->pais or old('pais')}}" required>
-        </div>
+                        <div class="form-group">
+                            <label for="pais">Pais:</label>
+                            <input type="text" class="form-control" id="pais" name="pais" value="{{$reg->pais or old('pais')}}" required>
+                        </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <button type="reset" class="btn btn-warning">Limpar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="reset" class="btn btn-warning">Limpar</button>
 
-    </form>
-    </form>
+                    </form>
+            </form>
 
     </div>
 

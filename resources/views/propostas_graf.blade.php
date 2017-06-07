@@ -2,7 +2,7 @@
 @section('conteudo')
 
     <div class="col-sm-12">
-        <h2>Gráfico de carros</h2>
+        <h2>Gráfico de Propostas</h2>
 
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -11,9 +11,9 @@
             google.charts.setOnLoadCallback(drawChart);
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                    ['Marca', 'Nº de Veiculos'],
-                    @foreach($carros as $carro)
-                    {!! "['$carro->marca',$carro->num]," !!}
+                    ['Propostas', 'Nº de Veiculos'],
+                    @foreach($propostas as $proposta)
+                    {!! "['date_format($proposta->date)',$proposta->num]," !!}
 
 
 
@@ -21,7 +21,7 @@
                 ]);
 
                 var options = {
-                    title: 'Nº de veiculos por marcas',
+                    title: 'Nº de propostas por mes',
                     is3D: true,
                 };
 

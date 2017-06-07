@@ -56,7 +56,7 @@
             @endforeach
             </tbody>
         </table>
-            {{$marcas->links()}}
+        {{$marcas->links()}}
     </div>
 
 

@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Mail;
 use App\Carro;
 use App\Marca;
-use App\Mail\AvisoPromocao;
 
 
 class CarroController extends Controller
@@ -43,16 +41,12 @@ class CarroController extends Controller
      */
     public function create()
     {
-
-        if (!Auth::check()) {
+        if (!(Auth::check())) {
             return redirect('/arearestrita');
         }
         $acao = 1;
-
         $marcas = Marca::orderBy('nome')->get();
-
-        return view('carros_form', compact('acao', 'marcas'));
-
+        return view("carros_form", compact('acao', 'marcas'));
     }
 
     /**
@@ -89,11 +83,9 @@ class CarroController extends Controller
      */
     public function show($id)
     {
-        $s = new Carro();
-        $reg = $s->find($id);
-        $marcas = Marca::orderBy('nome')->get();
+        $reg = Carro::find($id);
         $acao = 3;
-        return view('carros_form', compact('reg', 'acao', 'marcas'));
+        return view('carros_form', compact('reg','acao'));
     }
 
     /**
@@ -218,6 +210,44 @@ class CarroController extends Controller
         return view('carros_pesq', compact('carros'));
     }
 
+
+    public function filtros3(Request $request) {
+
+        $modelo = $request->modelo;
+        $value = $request->precomax;
+        $marca = $request->marca;
+        $ano = $request->ano;
+
+        $novo1 = str_replace('.', '', $value);
+        $novo2 = str_replace(',', '.', $novo1);
+        $precomax = $novo2;
+
+        $filtro = array();
+
+        if (!empty($modelo)) {
+            array_push($filtro, array('modelo', 'like', '%'.$modelo.'%'));
+        }
+        if (!empty($precomax)) {
+            array_push($filtro, array('preco', '<=', $precomax));
+        }
+        if (!empty($marca)) {
+            array_push($filtro, array('marca_id', '=', $this->marcasGetId($marca)));
+        }
+        if (!empty($ano)) {
+            array_push($filtro, array('ano', '=', $ano));
+        }
+        $carros = carro::where($filtro)
+            ->orderBy('modelo')
+            ->paginate(3);
+       $acao = 2;
+        return view('user_pesquisa', compact('acao','carros', 'ex'));
+    }
+
+
+
+
+
+
     public function filtros2(Request $request)
     {
         $modelo = $request->modelo;
@@ -231,18 +261,13 @@ class CarroController extends Controller
         return view('carros_pesq', compact('carros'));
     }
 
-    public function graf(){
-
-
-
+    public function graf() {
         $carros = DB::table('carros')
             ->join('marcas', 'carros.marca_id', '=', 'marcas.id')
             ->select('marcas.nome as marca', DB::raw('count(*) as num'))
             ->groupBy('marcas.nome')
             ->get();
-
-
-        return view ("carros_graf",compact('carros'));
+        return view('carros_graf', compact('carros'));
     }
 
     public function enviaMail(){
@@ -250,4 +275,78 @@ class CarroController extends Controller
         Mail::to($destinatario)->subject("Promoção de Aniversário")
             ->send(new AvisoPromocao());
     }
+
+    public function destaque() {
+
+        $carros = Carro::where('destaque', '=' ,1)
+            ->orderBy('modelo')
+            ->paginate(3);
+             $acao = 1;
+        return view('user_home', compact('acao','carros'));
+
+    }
+
+    public function oferta($id) {
+        $reg = Carro::find($id);
+
+        return view('oferta', compact('reg'));
+    }
+
+
+
+
+    public function storedestaque($id) {
+        $reg = Carro::find($id);
+        if ($reg->destaque == 0) {
+            DB::table('carros')
+                ->where('id', $id)
+                ->update(['destaque' => 1]);
+        } else {
+            DB::table('carros')
+                ->where('id', $id)
+                ->update(['destaque' => 0]);
+        }
+        return redirect()->route('carros.destaque');
+    }
+
+    public function marcasGetId($marca) {
+        $marcas = Marca::all();
+        foreach ($marcas as $marc) {
+            if ($marc->nome == $marca) {
+                $marca_Id = $marc->id;
+                return $marca_Id;
+            }
+        }
+    }
+
+
+    public function pesquisar()
+    {
+
+        $carros = Carro::paginate(5);
+        $acao = 2;
+        return view('user_pesquisa', compact('acao','carros'));
+    }
+
+
+
+
+    public function mostrar(){
+
+        $carros = Carro::paginate(5);
+        $acao = 1;
+        return view('catalogo', compact('acao','carros'));
+    }
+
+
+    public function edita($id)
+    {
+        $reg = Carro::find($id);
+
+        $acao = 1;
+
+        return view('oferta', compact('reg','acao'));
+    }
+
+
 }

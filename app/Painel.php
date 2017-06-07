@@ -15,25 +15,25 @@ class Painel extends Model
         return $this->belongsTo('App\Marca');
     }
 
-   public function getCombustivelAttribute($value){
-       if($value=="A"){
-           return "Álcool";
-       }else if ($value == "G"){
-           return "Gasolina";
-       }else if($value=="F"){
-           return "Flex";
-       } else if($value=="D"){
-           return "Diesel";
-       }
-   }
+    public function getCombustivelAttribute($value){
+        if($value=="A"){
+            return "Álcool";
+        }else if ($value == "G"){
+            return "Gasolina";
+        }else if($value=="F"){
+            return "Flex";
+        } else if($value=="D"){
+            return "Diesel";
+        }
+    }
 
 
-   public function setPrecoAttribute($value){
-       $novo1 = str_replace('.','',$value);
-       $novo2 = str_replace(',','.',$novo1);
-       $this->attributes['preco']=$novo2;
+    public function setPrecoAttribute($value){
+        $novo1 = str_replace('.','',$value);
+        $novo2 = str_replace(',','.',$novo1);
+        $this->attributes['preco']=$novo2;
 
-   }
+    }
 
 
 

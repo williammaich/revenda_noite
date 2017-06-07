@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 16, 2017, 7:29:01 AM
+    Author     : dogma
+*/
+
+header {
+    position: fixed;
+    background-color:  #0000FF;
+}
+header li {
+    font-family: 'Fredericka the Great', cursive;
+    display: inline-block;
+    margin-right: 25px;
+    color: black;
+    font-size: 24px;
+    color: white;
+}
+#logo {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    margin-bottom: 3px;
+}
+a {
+    color: white;
+    text-align: center;
+}
+a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+section {
+    margin-top: 25px;
+}
+section ul {
+    padding: 1px 8px 20px 5px;
+    border-left: 5px solid #0000FF;
+    border-right: 5px solid #0000FF;
+    border-bottom: 5px solid #0000FF;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+}
+section li {
+    margin-top: 8px;
+    text-align: center;
+    list-style: none;
+    size: 110%;
+}
+input {
+    border-radius: 10px;
+    border: 2px solid #0000FF;
+}
+article ul {
+    display: inline-block;
+}
+article li {
+    list-style: none;
+}
+img:hover {
+//    filter: grayscale(0);
+}
+img {
+//    filter: grayscale(1);
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+}
+
+
