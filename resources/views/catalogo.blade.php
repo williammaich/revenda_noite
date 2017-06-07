@@ -24,7 +24,7 @@
         <ul>
             <li><a href="{{'/'}}">Home</a>    |</li>
             <li><a href="{{('catalogo')}}">Catalogo </a>&nbsp;&nbsp; |</li>
-            <li><a>Marcas </a>&nbsp;&nbsp; |</li>
+            <li><a href="{{('catalogo_marcas')}}">Marcas </a>&nbsp;&nbsp; |</li>
             <li><a href="{{('user_pesquisa')}}">Pesquisas</a></li>
         </ul>
         <hr>

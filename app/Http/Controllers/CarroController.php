@@ -349,4 +349,16 @@ class CarroController extends Controller
     }
 
 
+
+    public function catalogo_marcas(){
+
+        $marcas = Marca::orderBy('nome')->get();
+       $carros = Carro::where('destaque', '=' ,1)
+            ->orderBy('modelo')
+            ->paginate(3);
+        $acao = 1;
+
+        return view('catalogo_marcas', compact('acao','carros','marcas'));
+    }
+
 }

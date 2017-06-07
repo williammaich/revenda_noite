@@ -145,4 +145,9 @@ class MarcaController extends Controller
                 ->with('status', $mar->nome . ' Excluído!');
         }
     }
+
+
+
+
+
 }

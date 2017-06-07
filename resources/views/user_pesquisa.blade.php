@@ -31,47 +31,10 @@
 </div>
 
 
-    <article class="col-sm-6">
-
-        <div class="container">
-
-
-
-            @if ($acao == 1)
-                <h2 style="font-family:  'Fredericka the Great', cursive;text-align: center">Destaques</h2>
-            @else
-                <h2 style="font-family:  'Fredericka the Great', cursive;text-align: center">Resultado</h2>
-            @endif
 
 
 
 
-
-
-
-
-
-            <br><hr><br>
-            @foreach($carros as $carro)
-                <ul>
-                    @if (file_exists(public_path('fotos/'.$carro->id.'.jpg')))
-                        <li><a href="{{route('propostas.edit' , $carro->id)}}"><img src="fotos/{{$carro->id}}.jpg" width="300" height="200" alt="carro"></a></li>
-                    @else
-                        <li><a><img src="fotos/semfoto.jpg" width="300" height="200" alt="carro"></a></li>
-
-                    @endif
-                    <li><h4 style="text-align: center">Modelo:{{$carro->modelo}}</h4></li>
-                    <li><h4 style="text-align: center">Valor:{{$carro->preco}}</h4></li>
-
-                </ul>
-
-
-            @endforeach
-
-        </article>
-
-
-    </div>
 
 @endsection
 

@@ -76,7 +76,7 @@ Route::get('catalogo','CarroController@mostrar');
 
 Route::get('user_pesquisa','CarroController@pesquisar');
 
-
+Route::get('catalogo_marcas','CarroController@catalogo_marcas');
 
 
 

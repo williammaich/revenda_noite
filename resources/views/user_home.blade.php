@@ -24,7 +24,7 @@
         <ul>
             <li><a href="{{'/'}}">Home</a>    |</li>
             <li><a href="{{('catalogo')}}">Catalogo </a>&nbsp;&nbsp; |</li>
-            <li><a>Marcas </a>&nbsp;&nbsp; |</li>
+            <li><a href="{{('catalogo_marcas')}}">Marcas </a>&nbsp;&nbsp; |</li>
             <li><a href="{{('user_pesquisa')}}">Pesquisas</a></li>
         </ul>
         <hr>
@@ -77,8 +77,8 @@
                 <li><a><img src="fotos/semfoto.jpg" width="300" height="200" alt="carro"></a></li>
 
             @endif
-            <li>Modelo:{{$carro->modelo}}</li>
-            <li>Valor:{{$carro->preco}}</li>
+            <li><h3 style="text-align: center">Modelo:{{$carro->modelo}}</h3></li>
+            <li><h3 style="text-align: center">Valor:{{$carro->preco}}</h3></li>
 
         </ul>
 
