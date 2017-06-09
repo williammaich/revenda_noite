@@ -13,7 +13,7 @@
                 var data = google.visualization.arrayToDataTable([
                     ['Propostas', 'Nº de Veiculos'],
                     @foreach($propostas as $proposta)
-                    {!! "['date_format($proposta->date)',$proposta->num]," !!}
+                    {!! "['$proposta->date',$proposta->num]," !!}
 
 
 
