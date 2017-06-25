@@ -361,4 +361,145 @@ class CarroController extends Controller
         return view('catalogo_marcas', compact('acao','carros','marcas'));
     }
 
+    //aula dia 22-06
+    public function ws($id=null){
+        header("Content_type: application/json; charset=utf-8");
+        if($id=null){
+            $retorno = array("status"=>"url incorreta",
+                "modelo"=>null,
+                "marca"=>null,
+                "ano"=>null,
+                "preco"=>null);
+        } else {
+            // pesquisa pelo id informado
+
+            $reg = Carro::find($id);
+            if(isset($reg)){
+                $retorno = array("status"=>"encontrado",
+                    "modelo"=>$reg->modelo,
+                    "marca"=>$reg->marca->nome,
+                    "ano"=>$reg->ano,
+                    "preco"=>$reg->preco);
+            } else{
+                $retorno = array("status"=>"Carro inexistente",
+                    "modelo"=>null,
+                    "marca"=>null,
+                    "ano"=>null,
+                    "preco"=>null);
+            }
+        }
+        echo json_encode($retorno, JSON_PRETTY_PRINT);
+    }
+
+    public function xml($id=null){
+
+//indica um tipo de retorno s FUNÇÃO
+
+        header("Content-type: application/xml");
+
+//inicialisa a biblioteca simplexml
+
+        $xml = new \SimpleXMLElement(''
+            . '<?xml version="1.0" enconding="utf-8"?>'
+            . '<carros></carros>');
+
+        if($id == null){
+
+            $item = $xml->addChild("carro");
+            $item ->addChild("status", "url incorrete");
+            $item ->addChild("modelo", null);
+            $item ->addChild("marca", null);
+            $item ->addChild("ano", null);
+            $item ->addChild("preco", null);
+
+        } else {
+
+            $reg = Carro::find($id);
+
+            if(isset($reg)){
+                $item = $xml->addChild("carro");
+                $item ->addChild("status", "encontrado");
+                $item ->addChild("modelo", $reg->modelo);
+                $item ->addChild("marca", $reg->marca->nome);
+                $item ->addChild("ano", $reg->ano);
+                $item ->addChild("preco", $reg->preco);
+
+            } else {
+
+
+                $item = $xml->addChild("carro");
+                $item ->addChild("status", "Carro inexistente");
+                $item ->addChild("modelo", null);
+                $item ->addChild("marca", null);
+                $item ->addChild("ano", null);
+                $item ->addChild("preco", null);
+            }
+
+
+        }
+
+        echo $xml->asXML();
+
+    }
+
+
+    public function listaxml($id=null,$id2=null){
+
+//indica um tipo de retorno s FUNÇÃO
+
+        header("Content-type: application/xml");
+
+//inicialisa a biblioteca simplexml
+
+        $xml = new \SimpleXMLElement(''
+            . '<?xml version="1.0" enconding="utf-8"?>'
+            . '<carros></carros>');
+
+        if($id == null || $id2 == null){
+
+            $item = $xml->addChild("carro");
+            $item ->addChild("status", "url incorrete");
+            $item ->addChild("modelo", null);
+            $item ->addChild("marca", null);
+            $item ->addChild("ano", null);
+            $item ->addChild("preco", null);
+
+        } else {
+
+            $reg = Carro::where('id','>=',$id)
+                ->where('id', '<=', $id2)
+                ->get();
+
+            //se nº de registros >0
+            if(cont($reg) > 0) {
+                foreach ($reg as $c){
+                    $item = $xml->addChild("carro");
+                    $item->addChild("status", "encontrado");
+                    $item->addChild("modelo", $c->modelo);
+                    $item->addChild("marca", $c->marca->nome);
+                    $item->addChild("ano", $c->ano);
+                    $item->addChild("preco", $c->preco);
+                }
+            } else {
+
+
+                $item = $xml->addChild("carro");
+                $item ->addChild("status", "Carro inexistente");
+                $item ->addChild("modelo", null);
+                $item ->addChild("marca", null);
+                $item ->addChild("ano", null);
+                $item ->addChild("preco", null);
+            }
+
+
+        }
+
+        echo $xml->asXML();
+
+    }
+
+// até aqui 22-06
+
+
+
 }

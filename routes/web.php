@@ -85,7 +85,13 @@ Route::resource('clientes','ClienteController');
 
 
 
+//---------------aula dia 22-06
+Route::get('carroxml/{id?}', 'CarroController@xml');
+Route::get('carrolista/{id?}/{id2?}', 'CarroController@listaxml');
 
+Route::get('propostas_list','PropostaController@index');
+//até aqui
+//---------------------------------------------
 
 
 //-------------------------------------------------------------------
